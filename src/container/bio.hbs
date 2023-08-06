@@ -1,0 +1,67 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+<div>
+ <div><h1>{{name}}</h1></div>
+    <strong>
+    <div> Birthdate: {{birthdate}}</div>
+    <div>Birthplace: {{birthplace}}</div>
+    <div>Deathdate: {{deathdate}}</div>
+    <div>Deathplace: {{deathplace}}</div>
+    <div>Nationality: {{nationality}}</div>
+    <div>Occupation: {{occupation}}</div>
+    </strong>
+        <div>
+        <h3> Known_for:</h3>
+        {{known_for}}
+        </div>
+        <br>
+            {{#each education}}
+            <div>Degree: {{degree}}</div>
+            <div>Field: {{field}}</div>
+            <div>Institution: {{institution}}</div>
+            <div>Year:{{year}}</div>
+            {{/each}}
+                <br>
+                <h3>Notable_publications:</h3>
+                {{#each notable_publications}}
+                <div><li>{{title}}({{year}})</li></div>
+                <div>Publisher: {{publisher}}</div>
+                {{/each}}
+                    <br>
+                    <h3>Partners:</h3>
+                    {{#each partners}}
+                    <div><u>{{name}}</u></div>
+                    <div>Relationship: {{relationship}} ({{years}})</div>
+                    {{/each}}
+                        <br>
+                        <h3>Awards:</h3>
+                        {{#each awards}}
+                         <div>{{title}}({{year}}) {{description}}</div>
+                        {{/each}}
+                            <div>
+                            <h4>Influences:</h4>
+                            {{influences}}
+                            <h4>Influenced:</h4>
+                            {{influenced}}
+                            <h4>Quotes:</h4>
+                            {{quotes}}
+                            </div>
+                            <hr>
+                                <h2>Major_discoveries:</h2>
+                                {{#each major_discoveries}}
+                                 {{title}}({{year}}) {{description}}
+                                {{/each}}
+                                    <h2>Contributions:</h2>
+                                    {{#with contributions}}
+                                    <h4>{{title}}:</h4> {{description}}
+                                    <div>{{year}} ({{field}})</div>
+                                    {{/with}}
+
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
