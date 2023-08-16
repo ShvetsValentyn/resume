@@ -1,0 +1,53 @@
+{{!-- 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ --}}
+
+<div>
+    {{#with web}}
+        <h1><u>Languages:</u></h1>
+        {{#each languages}}
+            <div>
+            <div><ol><h2>{{name}}:</h2></ol></div>
+            <div><h3>Version:{{version}};
+            <br>
+             Description: {{description}}</h3>
+            </div>
+                <div>
+                    {{#each elements}}
+                    <b><u>Elements:</u></b>
+                    <div><ol><b>{{name}}:</b> {{description}}</ol></div> 
+                    <ol><b>Attributes:</b></ol>
+                    {{#each attributes}}
+                   <div><ul><li>{{name}}: {{ description}}</li></ul> </div>
+                    {{/each}}
+                    {{/each}}
+                </div>
+                <div>
+                    {{#each properties}}
+                    <b><u>Properties:</u></b>
+                    <div><ol><b>{{name}}: </b>{{description}}</ol></div>
+                    <ol><b>Values:</b></ol>
+                    {{#each values}} 
+                    <div><ul><li>{{value}}: {{description}}</li></ul></div>
+                    {{/each}}
+                    {{/each}}
+                    </div>
+                    <div>
+                    {{#each functions}}
+                    <b><u>Functions:</u></b>
+                    <div><ol><b>{{name}}:</b> {{description}}</ol></div>
+                    <ol><b>Parameters:</b></ol>
+                    {{#each parameters}}
+                    <div><ul><li>{{name}}: <div><u>Type-</u> {{type}}: {{description}}</div></li></ul></div>
+                    {{/each}}
+                    {{/each}}
+                    </div>
+                  <hr>
+        {{/each}}
+    {{/with}}
+</div>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
