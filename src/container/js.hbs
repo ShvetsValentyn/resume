@@ -1,0 +1,44 @@
+{{!-- 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ --}}
+
+<div>
+    <div>
+    <h1>{{name}}</h1>  
+    <b>{{description}}</b>
+    <b> Founder:{{history.founder}} {{history.year}}</b>
+    </div>
+    <hr>
+        <div><b>Types:</b> {{types}}</div>
+        <br>
+        <div>
+            {{#with syntax}}
+            <b>Syntax:</b>
+            <li> Variables: {{variables}}</li>
+            <li> Functyons: {{functions}}</li>
+            <li>Conditionals: {{conditionals}}</li>
+            <li>Loops: {{loops}}</li>
+            <li>Classes: {{classes}}</li>
+            {{/with}}
+        </div>
+            <br>
+            <div><b>Features:</b> {{features}}</div>
+            <br> 
+            <div><b>Libraries:</b> {{libraries}}</div>
+            <br>
+            <div><b>Tools:</b> {{tools}}</div>
+            <br>
+                <div>
+                    <b>Communiti:</b>
+                    {{#each community}}
+                    <ol>{{name}} ({{type}})</ol>
+                    {{/each}}
+                </div>
+                <hr>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
