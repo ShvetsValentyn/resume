@@ -1,0 +1,99 @@
+{{!-- 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ --}}
+
+<div>
+ <div><h1>{{make}} {{model}} {{year}} {{color}}</h1></div>
+ <hr>
+   <div><h2> Features:</h2></div>
+   <div><ol><h3> Interior:</h3></ol></div>
+ {{#with features}}
+   <div>
+     {{#with interior}}
+     <ul><li><b>Seats:</b>
+     {{seats.material}}, {{seats.color}}.
+    <div> Heated: +</div>
+    <div> Ventilated: +</div></li>
+    <br>
+    <li><b>Dashboard:</b>
+    {{dashboard.material}}, {{dashboard.color}}.
+    <br>
+    <u>Display:</u> {{dashboard.display.type}}; {{dashboard.display.size}}; {{dashboard.display.resolution}}; <u>Touchscreen:</u> +</li>
+    <br>
+    <li><b>Audio:</b>
+    {{audio.system}}<br>
+    Speakers: {{audio.speakers}}<br>
+    subwoofer: + <br>
+    bluetooth: + <br>
+    USB: + 
+    </li></ul>
+    {{/with}}
+    </div>
+    <div>
+    <ol><h3>Exterior:</h3></ol>
+     {{#with exterior}}
+     <ul><li><b>Wheels:</b>
+     {{wheels.size}}'; {{wheels.type}}; {{wheels.color}}. </li>
+         <li><b>Headlights:</b>
+         {{headlights.type}}<br>
+         Brightness: {{headlights.brightness}}<br>
+         Automatic: + </li>
+         <li><b>Sunroof:</b>
+        {{sunroof.type}}; {{sunroof.size}}.<br>
+        Automatic: +
+         </li></ul>
+     {{/with}}
+     </div>
+     <div>
+     <ol><h3>Safety:</h3></ol>
+     {{#with safety}}
+     <ul><li><b>Airbags:</b><br>
+      Front: {{airbags.front}}<br>
+      Side: {{airbags.side}}<br>
+      Knee: {{airbags.knee}}<br>
+      Rear: {{airbags.rear}}</li>
+         <li><b>Assistance:</b><br>
+      Blind_spot_monitoring: {{assistance.blind_spot_monitoring}}<br>
+      Rear_cross_traffic_alert: {{assistance.rear_cross_traffic_alert}}<br>
+      Lane_departure_warning: {{assistance.lane_departure_warning}}<br>
+      Adaptive_cruise_control: {{assistance.adaptive_cruise_control}}<br>
+      Collision_warning: {{assistance.collision_warning}}</li> </ul>
+      {{/with}}
+     </div>
+ {{/with}}
+      <div><ol><h3>Engine:</h3>
+      {{#with engine}}
+        Type: {{type}}<br>
+        Displacement: {{displacement}}<br>
+        Horsepower: {{horsepower}}<br>
+        Torque: {{torque}}<br>
+        <br>
+        <b>Transmission:</b> {{transmission.type}}; gears: {{transmission.gears}}
+      {{/with}}
+      </ol>
+      </div>
+        <div>
+            {{#with fuel_economy}}
+            <ol><b>Fuel_economy:</b> City- {{city}}; Highway- {{highway}}; Combined- {{combined}}.</ol>
+            {{/with}}
+        </div>
+        <hr>
+        <div>
+            <ol>
+            {{#with price}}
+            <b>Price: </b> Base: {{base}}; Destination: {{destination}}.<br>
+            <b>Options:</b><br>
+              Navigation: {{options.navigation}}<br>
+              Moonroof: {{options.moonroof}}<br>
+              Premium_paint: {{options.premium_paint}}<br>
+              <b><u>Total: {{total}}<u></b>
+            {{/with}}
+         </ol>
+        </div>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
