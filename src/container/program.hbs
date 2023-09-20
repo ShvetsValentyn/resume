@@ -1,0 +1,62 @@
+{{!-- 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ --}}
+
+
+{{#with program.excursion}}
+    <h1>
+        <section>{{name}}</section>
+            <div>{{location.city}} / {{location.country}} / {{date}}</div>
+    </h1>
+    <br>
+         <h2>Program:</h2>
+         <hr>
+           {{#each program}}
+               <h3>{{name}} ({{type}} {{duration}}) :</h3>
+                    {{#with details.museum}}
+                         <li><b>{{name}}</b></li>
+                            <address>
+                               {{#with location}}
+                                    {{address}} / {{city}} / {{country}}
+                                {{/with}}
+                            </address>
+                            <h4>Exhibits:</h4>
+                               {{#each exhibits}}
+
+                              <div>{{name}} / {{artist}} {{description}}</div>
+                                 {{#if audio_guide}} (Audio_guide) {{/if}}
+                      
+                               {{/each}}
+                               <br>
+                     {{/with}}
+                        {{#with details.venue}}
+                        <li><b>Venue: {{name}}</b></li>
+                            <address>
+                                {{#with location}}
+                                 {{address}} / {{city}} / {{country}}
+                                {{/with}}
+                            </address>
+                        {{/with}}
+                     
+                            {{#with details}}
+                            {{#if performers}}<h4>Performers:</h4>{{/if}}
+                            {{#each performers}} 
+                                {{name}} {{type}}
+                     <br>
+                            {{/each}}
+                            {{/with}}
+                        
+                               {{#with details}}
+                               {{#with guide}}
+                              <u> Guide:</u>{{name}} {{language}} ({{rating}}) 
+                               {{/with}}
+                               {{/with}}
+                     <hr>
+             {{/each}}
+    {{/with}}
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
